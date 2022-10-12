@@ -1,0 +1,2 @@
+ link de los RF con fotos de conexión de los dos arduinos: 
+ https://naylampmechatronics.com/blog/16_tutorial-basico-nrf24l01-con-arduino.html
