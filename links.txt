@@ -2,3 +2,5 @@
  https://naylampmechatronics.com/blog/16_tutorial-basico-nrf24l01-con-arduino.html
  link del tutotial para programar la interfaz de arduino y el programa en:
  https://github.com/balau/arduino_c
+ Repositorio del profe lunati: 
+ https://github.com/lunativ/INFOII.git
