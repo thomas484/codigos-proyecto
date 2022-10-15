@@ -10,10 +10,6 @@ void setup() {
   // start serial port at 9600 bps:
     pinMode(LED_BUILTIN, OUTPUT);  
   Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  } 
-  establishContact();  // send a byte to establish contact until receiver responds 
 }
 
 void loop() {
@@ -28,12 +24,6 @@ palabra = leer_puerto();
   }
 }
 
-void establishContact() {
-  while (Serial.available() <= 0) {
-    Serial.print('A');   // send a capital A MANDA CARACTERES A HASTA QUE RECIBA ALGUN DATO DE INICIO DEL OTRO PROGRAMA EN C PARA LA INTERFAZ 
-    delay(100);
-  }
-}
 String leer_puerto(void){ //lee_el_puerto();
     String suma_de_char = "";
    char char_individual = Serial.read(); //lee el el valor desde el puerto
@@ -43,5 +33,3 @@ String leer_puerto(void){ //lee_el_puerto();
     if (char_individual=='\n') //cuando desde la pc le damos enter detecta el fin de linea
      return suma_de_char;
   }
-  
-
