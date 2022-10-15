@@ -21,7 +21,7 @@ return -1;
 tcflush(fd, TCIOFLUSH);
 for(;;)
 {
-write(fd, "1", 1);
+write(fd, "1", 1); //manda el caracter 1 por el puerto serie
 tcdrain(fd);
 sleep(1);
 }
@@ -30,7 +30,7 @@ for(int d=0; d<20000; d++);
 
 for(;;)
 {
-write(fd, "2", 1);
+write(fd, "2", 1); //manda el caracter 2 por el puerto serie
 tcdrain(fd);
 sleep(1);
 }
