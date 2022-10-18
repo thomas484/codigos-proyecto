@@ -16,11 +16,11 @@ void loop() {
  
   if (Serial.available()){
 palabra = leer_puerto();
-    if(palabra.toInt()==1) //convierte la cadena a el numero entero correspondiente
+    if(palabra=="1") //convierte la cadena a el numero entero correspondiente palabra.toInt()
   digitalWrite(LED_BUILTIN, HIGH);
-  else if(palabra.toInt()==2)
+  else if(palabra=="2")
    digitalWrite(LED_BUILTIN, LOW);
-   Serial.print(palabra);
+   //Serial.print(palabra);
   }
 }
 
