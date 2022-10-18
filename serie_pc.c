@@ -3,12 +3,16 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "termset.h"
+#include <string.h>
 
 int main(void){
 
 int fd;
+char a;
 struct termios oldtty, newtty;
-fd = open("/dev/ttyUSB0", O_RDWR | O_NOCTTY | O_NDELAY);
+const char *str1 = "1";
+const char *str2 = "2";
+fd = open("/dev/ttyUSB2", O_RDWR | O_NOCTTY | O_NDELAY);
 if(fd == -1){
 printf("ERROR:  no se pudo abrir el dispositivo\n");
 return -1;
@@ -19,21 +23,23 @@ return -1;
 }
 
 tcflush(fd, TCIOFLUSH);
-for(;;)
-{
-write(fd, "1", 1); //manda el caracter 1 por el puerto serie
+
+do{ //desde acá hace un while infinito hasta que reciba una "s", sino con la "p" prende el led de la placa de arduino y con la "a" lo apaga
+scanf("%c", &a);
+if(a=='p'){
+write(fd, str1, strlen(str1));
+tcdrain(fd);
+sleep(1);
+}
+if(a=='a'){
+write(fd, str2, strlen(str2));
 tcdrain(fd);
 sleep(1);
 }
 
-for(int d=0; d<20000; d++);
 
-for(;;)
-{
-write(fd, "2", 1); //manda el caracter 2 por el puerto serie
-tcdrain(fd);
-sleep(1);
-}
+}while(a!='s');
+
 
 close(fd);
 return 0;
