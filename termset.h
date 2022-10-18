@@ -3,7 +3,7 @@
 
 #include <termios.h>
 
-struct termios ttyold, ttynew;
+//struct termios ttyold, ttynew;
 
 /*
 fd = /dev/ttyUSB0
