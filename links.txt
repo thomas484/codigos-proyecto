@@ -4,3 +4,6 @@
  https://github.com/balau/arduino_c
  Repositorio del profe lunati: 
  https://github.com/lunativ/INFOII.git
+
+Programa Arduino recibe una cadena: 
+https://gist.github.com/esmarr58/142209b56ce407433244619834719501
