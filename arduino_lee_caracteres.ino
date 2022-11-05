@@ -1,9 +1,9 @@
-/*
- This program sends an ASCII A (byte of value 65) on startup and repeats that
-  until it gets some data in. Then it waits for a byte in the serial port, and
-  sends three sensor values whenever it gets a byte in.
-*/
+
+
+
 String palabra = "";
+byte  entero = 68;
+String stringUno = String(entero);
 
 
 void setup() {
@@ -20,7 +20,9 @@ palabra = leer_puerto();
   digitalWrite(LED_BUILTIN, HIGH);
   else if(palabra=="2")
    digitalWrite(LED_BUILTIN, LOW);
-   //Serial.print(palabra);
+   else if(palabra=="3")
+   escribe_puerto(entero);
+   delay(500);
   }
 }
 
@@ -33,3 +35,8 @@ String leer_puerto(void){ //lee_el_puerto();
     if (char_individual=='\n') //cuando desde la pc le damos enter detecta el fin de linea
      return suma_de_char;
   }
+  void escribe_puerto(byte p){
+    Serial.write(p);
+    
+    }
+  
